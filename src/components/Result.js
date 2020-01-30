@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-const convertToJson = require("xml2js").parseString;
+const convertToJson = require('xml2js').parseString;
 
 class Result extends React.Component {
   constructor() {
@@ -13,7 +13,7 @@ class Result extends React.Component {
 
   componentDidMount() {
     if (!this.state.fetched) {
-      fetch("https://www.fueleconomy.gov/ws/rest/ympg/shared/ympgVehicle/26425")
+      fetch('https://www.fueleconomy.gov/ws/rest/ympg/shared/ympgVehicle/26425')
         .then(response => response.text())
         .then(data => {
           convertToJson(data, (err, convertedData) => {
