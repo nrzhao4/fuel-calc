@@ -2,7 +2,7 @@ import React from "react";
 
 function ButtonReset(props) {
   return (
-    <div>
+    <div className='button'>
       <button onClick={props.onClickReset}>Reset</button>
     </div>
   );

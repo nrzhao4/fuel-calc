@@ -3,7 +3,7 @@ import './styles.css';
 import SelectCar from './components/SelectCar';
 import Result from './components/Result';
 import ButtonDone from './components/ButtonDone';
-import ButtonAdd from './components/ButtonAdd';
+//import ButtonAdd from './components/ButtonAdd';
 import ButtonReset from './components/ButtonReset';
 
 class App extends React.Component {
@@ -45,8 +45,7 @@ class App extends React.Component {
     return (
       <div>
         <div className='flexbox'>
-            <SelectCar key='1' id='1'/> 
-            <SelectCar key='2' id='2'/>        
+            <SelectCar key='1' id='1'/>        
             </div>
         <ButtonDone onClickDone={this.onClickDone} />
         <ButtonReset onClickReset={this.onClickReset} />
