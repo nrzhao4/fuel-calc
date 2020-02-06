@@ -5,8 +5,8 @@ import SelectModel from './SelectModel';
 import SelectOption from './SelectOption';
 
 class SelectCar extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             year: '',
             make: '',
@@ -19,6 +19,7 @@ class SelectCar extends React.Component {
         this.onChangeOption = this.onChangeOption.bind(this);
     }
 
+    // When a year is selected
     onChangeYear(event) {
         const selectedYear = event.target.value;
         this.setState( prevState => ({
@@ -27,38 +28,41 @@ class SelectCar extends React.Component {
         }));
     }
 
+    // When a make is selected
     onChangeMake(event) {
         const selectedMake = event.target.value;
         this.setState( prevState => ({
             ...prevState,
-            make: selectedMake
+            make: selectedMake,
         }));
     }
 
+    // When a model is selected
     onChangeModel(event) {
         const selectedModel = event.target.value;
         this.setState( prevState => ({
             ...prevState,
-            model: selectedModel
+            model: selectedModel,
         }));
     }
 
+    // Selecting an option will return a vehicle id
     onChangeOption(event) {
         const selectedOption = event.target.value;
         this.setState( prevState => ({
             ...prevState,
             vehicleId: selectedOption
         }));
+        this.props.onCarSelected(this.props.id, selectedOption);
     }
 
     render() {
-        console.log(this.state.vehicleId);
         return (
         <div className='select-car'>
             <h2>Car {this.props.id}</h2>
             <div className='flexbox'>
                 <label>Year: </label>
-                <SelectYear onChangeHandler={this.onChangeYear}/>
+                <SelectYear info={this.state} onChangeHandler={this.onChangeYear}/>
             </div>
 
             <div className='flexbox'>

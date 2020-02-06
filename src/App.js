@@ -3,22 +3,26 @@ import './styles.css';
 import SelectCar from './components/SelectCar';
 import Result from './components/Result';
 import ButtonDone from './components/ButtonDone';
-//import ButtonAdd from './components/ButtonAdd';
 import ButtonReset from './components/ButtonReset';
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      showResult: false
+      showResult: false,
+      toCompare: []
     };
     this.onClickDone = this.onClickDone.bind(this);
     this.onClickReset = this.onClickReset.bind(this);
+    this.onCarSelected = this.onCarSelected.bind(this);
   }
 
   onClickDone() {
     if (!this.state.showResult) {
-      this.setState({ showResult: true });
+        this.setState( prevState => ({
+            ...prevState,
+            showResult: true
+        }));
     }
   }
 
@@ -28,16 +32,23 @@ class App extends React.Component {
     });
   }
 
+  onCarSelected(carNumber, vehicleId) {
+    this.setState( prevState => ({
+        ...prevState,
+        toCompare: [...prevState.toCompare, {car: carNumber, id: vehicleId}]
+    }));
+  }
+
   render() {
     return (
       <div>
         <div className='flexbox'>
-            <SelectCar key='1' id='1'/>
-            <SelectCar key='2' id='2'/>         
+            <SelectCar key='1' id='1' onCarSelected={this.onCarSelected} />
+            <SelectCar key='2' id='2' onCarSelected={this.onCarSelected} />         
         </div>
         <ButtonDone onClickDone={this.onClickDone} />
         <ButtonReset onClickReset={this.onClickReset} />
-        {this.state.showResult && <Result />}
+        {this.state.showResult && <Result cars={this.state.toCompare} />}
       </div>
     );
   }

@@ -6,6 +6,7 @@ class SelectYear extends React.Component {
     constructor(props) {
         super(props);
         this.state = { years: [] }
+
     }
 
     componentDidMount() {
@@ -25,11 +26,9 @@ class SelectYear extends React.Component {
 
     render() {
         return (
-            <form>
-                <select value={this.state.value} onChange={this.props.onChangeHandler}>
-                    {this.state.years.map((year) => <option key={year.value} value={year.value}>{year.display}</option>)}
-                </select>
-            </form> 
+            <select value={this.state.value} onChange={this.props.onChangeHandler}>
+                {this.state.years.map((year) => <option key={year.value} value={year.value}>{year.display}</option>)}
+            </select>
         );
     }
 }
