@@ -4,16 +4,30 @@ const convertToJson = require('xml2js').parseString;
 
 class Result extends React.Component {
 
+  constructor() {
+    super();
+    this.state = { mpgs: [] }
+  }
+
   componentDidMount(props) {
     console.log(this.props);
-    const carId = this.props.cars[0].id;
-    const source = `https://www.fueleconomy.gov/ws/rest/ympg/shared/ympgVehicle/${carId}`
-    console.log(source);
-    fetch(source)
-    .then(response => response.text())
-    .then(data => {
-      console.log(data);
-    })
+    this.props.cars.map(car => {
+      fetch(`https://www.fueleconomy.gov/ws/rest/ympg/shared/ympgVehicle/${car.id}`)
+      .then(response => response.text())
+      .then(data => {
+        convertToJson(data, (err, convertedData) => {
+          if(convertedData !== null) {
+            this.setState(prevState => ({
+              mpgs: [...prevState.mpgs, convertedData.yourMpgVehicle.avgMpg[0]]
+            }))
+          }
+        })
+      })
+    });
+  }
+
+  componentDidUpdate() {
+    console.log('state', this.state);
   }
 
             
