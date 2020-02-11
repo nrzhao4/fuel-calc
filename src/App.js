@@ -32,10 +32,10 @@ class App extends React.Component {
     });
   }
 
-  onCarSelected(carNumber, vehicleId) {
+  onCarSelected(carNumber, name, vehicleId) {
     this.setState( prevState => ({
         ...prevState,
-        toCompare: [...prevState.toCompare, {car: carNumber, id: vehicleId}]
+        toCompare: [...prevState.toCompare, {car: carNumber, name: name, id: vehicleId}]
     }));
   }
 

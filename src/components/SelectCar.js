@@ -53,7 +53,9 @@ class SelectCar extends React.Component {
             ...prevState,
             vehicleId: selectedOption
         }));
-        this.props.onCarSelected(this.props.id, selectedOption);
+        const selectedName = this.state.make + ' ' + this.state.model;
+        console.log(selectedName);
+        this.props.onCarSelected(this.props.id, selectedName, selectedOption);
     }
 
     render() {
