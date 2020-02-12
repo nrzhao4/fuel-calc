@@ -18,7 +18,12 @@ class Result extends React.Component {
         convertToJson(data, (err, convertedData) => {
           if(convertedData !== null) {
             this.setState(prevState => ({
-              mpgs: [...prevState.mpgs, convertedData.yourMpgVehicle.avgMpg[0]]
+              mpgs: [...prevState.mpgs,
+                {id: car.id, name: car.name, mpg: convertedData.yourMpgVehicle.avgMpg[0]}]
+            }))
+          } else {
+            this.setState(prevState => ({
+              mpgs: [...prevState.mpgs, {id: car.id, name: car.name, mpg: null}]
             }))
           }
         })
@@ -26,17 +31,17 @@ class Result extends React.Component {
     });
   }
 
-  componentDidUpdate() {
-    console.log('state', this.state);
-  }
-
-            
-
   render() {
-    //const result = this.state.result.yourMpgVehicle.avgMpg[0]
+    const results = this.state.mpgs.map(car => {
+      if (car.mpg === null) {
+        return (<h3 key={car.id}>There is no fuel economy data for {car.name}</h3>)
+      } else {
+        return (<h3 key={car.id}> {car.name}: {car.mpg} mpg</h3>)
+      }
+    })
     return (
       <div>
-        <h3>Calculated result</h3>
+        {this.state.mpgs !== [] && results}
       </div>
     );
   }

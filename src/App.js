@@ -4,6 +4,7 @@ import SelectCar from './components/SelectCar';
 import Result from './components/Result';
 import ButtonDone from './components/ButtonDone';
 import ButtonReset from './components/ButtonReset';
+import Mileage from './components/Mileage';
 
 class App extends React.Component {
   constructor() {
@@ -18,7 +19,9 @@ class App extends React.Component {
   }
 
   onClickDone() {
-    if (!this.state.showResult) {
+    if (this.state.toCompare.length < 1) {
+      alert('Select at least one car');
+    } else if (!this.state.showResult) {
         this.setState( prevState => ({
             ...prevState,
             showResult: true
@@ -32,10 +35,10 @@ class App extends React.Component {
     });
   }
 
-  onCarSelected(carNumber, vehicleId) {
+  onCarSelected(carNumber, name, vehicleId) {
     this.setState( prevState => ({
         ...prevState,
-        toCompare: [...prevState.toCompare, {car: carNumber, id: vehicleId}]
+        toCompare: [...prevState.toCompare, {car: carNumber, name: name, id: vehicleId}]
     }));
   }
 
@@ -46,9 +49,14 @@ class App extends React.Component {
             <SelectCar key='1' id='1' onCarSelected={this.onCarSelected} />
             <SelectCar key='2' id='2' onCarSelected={this.onCarSelected} />         
         </div>
-        <ButtonDone onClickDone={this.onClickDone} />
-        <ButtonReset onClickReset={this.onClickReset} />
+
+        <Mileage />
         {this.state.showResult && <Result cars={this.state.toCompare} />}
+        <div className='flexbox'>
+          {!this.state.showResult && <ButtonDone onClickDone={this.onClickDone} />}
+          <ButtonReset onClickReset={this.onClickReset} />
+        </div>
+        
       </div>
     );
   }

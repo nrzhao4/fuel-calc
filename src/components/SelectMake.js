@@ -28,11 +28,9 @@ class SelectMake extends React.Component {
 
     render() {
         return (
-            <form>
-                <select value={this.state.value} onChange={this.props.onChangeHandler}>
-                    {this.state.makes.map((make) => <option key={make.value} value={make.value}>{make.display}</option>)}
-                </select>
-            </form> 
+            <select className='dropdown' value={this.state.value} onChange={this.props.onChangeHandler}>
+                {this.state.makes.map((make) => <option key={make.value} value={make.value}>{make.display}</option>)}
+            </select>
         );
     }
 }
