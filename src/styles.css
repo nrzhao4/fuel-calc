@@ -98,6 +98,21 @@ label {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
+.button-unit {
+  float: left;
+  border-radius: 8px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  color: #196b69;
+  border: 2px solid #196b69
+}
+
+.button-unit:active {
+  background-color: #196b69;
+  color: #ddfee4;
+}
+
 .dropdown {
   position: relative;
   height: 24px;
