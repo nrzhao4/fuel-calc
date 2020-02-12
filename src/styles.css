@@ -15,7 +15,7 @@ h1 {
 
 h3 {
   font-family: 'Nunito', sans-serif;
-  color: #196b69;
+  color: #132f2b;
   margin-left: 16px;
   margin-right: 16px;
   font-weight: bolder;
@@ -81,12 +81,12 @@ label {
 .button-secondary {
   font-family: 'Courier New', sans-serif;
   font-weight: bold;
-  color: #132f2b;
   border-radius: 8px;
   font-size: 20px;
   margin-left: 8px;
   margin-top: 8px;
   padding: 10px 24px;
+  color: #196b69;
   border: 2px solid #196b69;
   transition-duration: 0.4s;
 }
