@@ -19,7 +19,9 @@ class App extends React.Component {
   }
 
   onClickDone() {
-    if (!this.state.showResult) {
+    if (this.state.toCompare.length < 1) {
+      alert('Select at least one car');
+    } else if (!this.state.showResult) {
         this.setState( prevState => ({
             ...prevState,
             showResult: true
