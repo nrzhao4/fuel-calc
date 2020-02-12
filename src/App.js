@@ -4,6 +4,7 @@ import SelectCar from './components/SelectCar';
 import Result from './components/Result';
 import ButtonDone from './components/ButtonDone';
 import ButtonReset from './components/ButtonReset';
+import Mileage from './components/Mileage';
 
 class App extends React.Component {
   constructor() {
@@ -46,9 +47,14 @@ class App extends React.Component {
             <SelectCar key='1' id='1' onCarSelected={this.onCarSelected} />
             <SelectCar key='2' id='2' onCarSelected={this.onCarSelected} />         
         </div>
-        <ButtonDone onClickDone={this.onClickDone} />
-        <ButtonReset onClickReset={this.onClickReset} />
+
+        <Mileage />
         {this.state.showResult && <Result cars={this.state.toCompare} />}
+        <div className='flexbox'>
+          {!this.state.showResult && <ButtonDone onClickDone={this.onClickDone} />}
+          <ButtonReset onClickReset={this.onClickReset} />
+        </div>
+        
       </div>
     );
   }

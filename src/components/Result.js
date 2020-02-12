@@ -19,7 +19,7 @@ class Result extends React.Component {
           if(convertedData !== null) {
             this.setState(prevState => ({
               mpgs: [...prevState.mpgs,
-                {car: car.car, mpg: convertedData.yourMpgVehicle.avgMpg[0]}]
+                {id: car.id, name: car.name, mpg: convertedData.yourMpgVehicle.avgMpg[0]}]
             }))
           } else {
             this.setState(prevState => ({
@@ -34,14 +34,13 @@ class Result extends React.Component {
   render() {
     const results = this.state.mpgs.map(car => {
       if (car.mpg === null) {
-        return (<p key={car.id}>There is no fuel economy data for {car.name}</p>)
+        return (<h3 key={car.id}>There is no fuel economy data for {car.name}</h3>)
       } else {
-        return (<p key={car.id}> {car.name}: {car.mpg} mpg</p>)
+        return (<h3 key={car.id}> {car.name}: {car.mpg} mpg</h3>)
       }
     })
     return (
       <div>
-        <h3>Calculated result</h3>
         {this.state.mpgs !== [] && results}
       </div>
     );

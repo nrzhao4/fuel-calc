@@ -61,7 +61,7 @@ class SelectCar extends React.Component {
     render() {
         return (
         <div className='select-car'>
-            <h2>Car {this.props.id}</h2>
+            <h1>Car {this.props.id}</h1>
             <div className='flexbox'>
                 <label>Year: </label>
                 <SelectYear info={this.state} onChangeHandler={this.onChangeYear}/>

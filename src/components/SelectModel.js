@@ -32,7 +32,7 @@ class SelectModel extends React.Component {
     render() {
         return (
             <form>
-                <select value={this.state.value} onChange={this.props.onChangeHandler}>
+                <select className='dropdown' value={this.state.value} onChange={this.props.onChangeHandler}>
                     {this.state.models.map((model) => <option key={model.value} value={model.value}>{model.display}</option>)}
                 </select>
             </form> 
