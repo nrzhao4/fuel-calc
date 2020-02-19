@@ -31,11 +31,11 @@ class SelectModel extends React.Component {
 
     render() {
         return (
-            <form>
+            <div>
                 <select className='dropdown' value={this.state.value} onChange={this.props.onChangeHandler}>
                     {this.state.models.map((model) => <option key={model.value} value={model.value}>{model.display}</option>)}
                 </select>
-            </form> 
+            </div> 
         );
     }
 }

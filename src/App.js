@@ -11,7 +11,8 @@ class App extends React.Component {
     super();
     this.state = {
       showResult: false,
-      toCompare: []
+      toCompare: [],
+      calculationInfo: null
     };
     this.onClickDone = this.onClickDone.bind(this);
     this.onClickReset = this.onClickReset.bind(this);
@@ -22,6 +23,8 @@ class App extends React.Component {
   onClickDone() {
     if (this.state.toCompare.length < 1) {
       alert('Select at least one car');
+    } else if (this.state.calculationInfo === null) {
+      alert('Please enter driving distance');
     } else if (!this.state.showResult) {
         this.setState(prevState => ({
             ...prevState,
@@ -31,9 +34,7 @@ class App extends React.Component {
   }
 
   onClickReset() {
-    this.setState({
-      showResult: false
-    });
+    window.location.reload();
   }
 
   onCarSelected(carNumber, name, vehicleId) {
@@ -54,7 +55,6 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <div>
         <div className='flexbox'>

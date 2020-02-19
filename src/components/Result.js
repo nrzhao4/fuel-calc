@@ -42,32 +42,34 @@ class Result extends React.Component {
     }
     
     //Convert distance from imperial to metric if needed
-    if(!isMiles) {
-      unit = 'L';
+    if(isMiles === '0') {
       result = mpg * 1.60934 / 3.78541 * distance;
-      result = result + ' ' + unit;
+
+      this.setState(prevState => ({
+        results: [...prevState.results,
+          {id: car.id, name: car.name, estimatedGasConsumption: result + ' L '}]
+      }));
     }
     else {
-      unit = 'gal.'
       result = distance * mpg;
-      result = result + ' ' + unit;
+
+      this.setState(prevState => ({
+        results: [...prevState.results,
+          {id: car.id, name: car.name, estimatedGasConsumption: result + ' gal. '}]
+      }));
     }
 
-    this.setState(prevState => ({
-      results: [...prevState.results,
-        {id: car.id, name: car.name, estimatedGasConsumption: result}]
-    }));
   }
 
   render() {
     const results = this.state.results.map(car => {
       if (car.estimatedGasConsumption === null) {
-        return (<h3 key={car.id}>Sorry, there is no fuel economy data for {car.name}.</h3>)
+        return (<h3 key={car.id}>Sorry, there is no fuel economy data for {car.name}</h3>)
       } else {
         return (<h3 key={car.id}>The {car.name} will use {car.estimatedGasConsumption}  
-          of fuel.</h3>)
+        of fuel</h3>)
       }
-    })
+    });
     return (
       <div className='results'>
         {this.state.mpgs !== [] && results}
