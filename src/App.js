@@ -25,6 +25,8 @@ class App extends React.Component {
       alert('Select at least one car');
     } else if (this.state.calculationInfo === null) {
       alert('Please enter driving distance');
+    } else if (isNaN(this.state.calculationInfo.distance)) {
+      alert('Driving distance must be a numerical value');
     } else if (!this.state.showResult) {
         this.setState(prevState => ({
             ...prevState,
