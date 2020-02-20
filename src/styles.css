@@ -22,6 +22,8 @@ h3 {
   margin-left: 16px;
   margin-right: 16px;
   font-weight: bolder;
+  margin-bottom: 2px;
+  margin-top: 2px;
 }
 
 p {
@@ -33,9 +35,9 @@ p {
 
 label {
   font-family: 'Courier New', sans-serif;
+  color: #132f2b;
   margin-left: 16px;
   margin-right: 16px;
-  color: #132f2b;
 }
 
 .flexbox {
@@ -47,7 +49,7 @@ label {
 .flexbox2 {
   display: flex;
   flex-direction: column;
-  padding: 4px;
+  margin: 8px;
 }
 
 .select-car {
@@ -98,19 +100,46 @@ label {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
+.button-unit {
+  float: left;
+  border-radius: 8px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  color: #196b69;
+  border: 2px solid #196b69
+}
+
+.button-unit:active {
+  background-color: #196b69;
+  color: #ddfee4;
+}
+
 .dropdown {
   position: relative;
   height: 24px;
   margin-left: 8px;
 }
 
-.options-box {
-  background-color: #28cc9e;
+.results {
+  background-color: #ddfee4;
   border-radius: 4px;
   margin-top: 8px;
   margin-left: 16px;
   margin-right: 16px;
   padding: 4px;
-  border: 2px solid #196b69;
+  border: 2px solid #28cc9e;
+}
+
+input[type=text] {
+  width: 100px;
+  text-align: right;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid #132f2b;
+  color: #132f2b;
+  font-family: 'Nunito', sans-serif;
+  font-weight: bolder;
+  font-size: 20px;
 }
 

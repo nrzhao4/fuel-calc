@@ -26,9 +26,12 @@ class SelectYear extends React.Component {
 
     render() {
         return (
-            <select className='dropdown' value={this.state.value} onChange={this.props.onChangeHandler}>
-                {this.state.years.map((year) => <option key={year.value} value={year.value}>{year.display}</option>)}
-            </select>
+            <div>
+                <select className='dropdown' value={this.state.value} onChange={this.props.onChangeHandler}>
+                    {this.state.years.map((year) => <option key={year.value} value={year.value}>{year.display}</option>)}
+                </select>
+            </div>
+            
         );
     }
 }
