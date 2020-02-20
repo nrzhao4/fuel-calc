@@ -29,7 +29,6 @@ class Result extends React.Component {
   calculate(car, mpg) {
     const distance = this.props.info.distance;
     const isMiles = this.props.info.isUnitsMiles;
-    let unit;
     let result;
 
     //if no mpg data, set result to null
@@ -44,6 +43,7 @@ class Result extends React.Component {
     //Convert distance from imperial to metric if needed
     if(isMiles === '0') {
       result = mpg * 1.60934 / 3.78541 * distance;
+      result = Math.floor(result);
 
       this.setState(prevState => ({
         results: [...prevState.results,
@@ -52,6 +52,7 @@ class Result extends React.Component {
     }
     else {
       result = distance * mpg;
+      result = Math.floor(result);
 
       this.setState(prevState => ({
         results: [...prevState.results,

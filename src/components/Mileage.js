@@ -30,11 +30,20 @@ class Mileage extends React.Component {
     }
 
     render() {
+        let inputLength;
+        if(this.state.distance.length < 1) {
+            inputLength = '36px';
+        } else {
+            inputLength = ((this.state.distance.length) * 12) + 'px'
+        }
+        const resizeInput = {
+            width: inputLength
+        }
         return (
             <div className='flexbox2'>
                 <div className='flexbox'>
                     <label>Distance to drive: </label>
-                    <input type='text' value={this.state.distance}
+                    <input type='text' style={resizeInput} value={this.state.distance}
                         onChange={this.handleDistance} />
                     <div>
                         <select className='dropdown' value={this.state.isUnitsMiles} 
