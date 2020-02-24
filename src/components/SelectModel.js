@@ -39,7 +39,6 @@ class SelectModel extends React.Component {
 
     componentDidUpdate(prevProps) {
         if(this.props.info.make !== prevProps.info.make) {
-            console.log('fetching models');
             this.setState({
                 models: [], year: this.props.info.year, make: this.props.info.make
             }, () => {
@@ -49,7 +48,6 @@ class SelectModel extends React.Component {
     }
 
     render() {
-        console.log('rendered');
         return (
             <div>
                 <select className='dropdown' value={this.state.value} onChange={this.props.onChangeHandler}>

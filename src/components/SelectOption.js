@@ -40,7 +40,6 @@ class SelectModel extends React.Component {
 
     componentDidUpdate(prevProps) {
         if(this.props.info.model !== prevProps.info.model) {
-            console.log('fetching options');
             this.setState({
                 options: [], 
                 year: this.props.info.year, 
