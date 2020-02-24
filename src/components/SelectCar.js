@@ -59,6 +59,7 @@ class SelectCar extends React.Component {
     }
 
     render() {
+        console.log('state:', this.state);
         return (
         <div className='select-car'>
             <h1>Car {this.props.id}</h1>
