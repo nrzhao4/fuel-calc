@@ -6,16 +6,19 @@ class SelectModel extends React.Component {
     constructor(props) {
         super(props);
         this.state = { 
-            models: [], 
+            options: [], 
             year: this.props.info.year,
             make: this.props.info.make,
             model: this.props.info.model,
-            options: ''
         }
+        this.fetchData = this.fetchData.bind(this);
     }
 
-    componentDidMount() {
-        const source = `https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year=${this.state.year}&make=${this.state.make}&model=${this.state.model}`;
+    fetchData() {
+        const selectedYear = this.state.year;
+        const selectedMake = this.state.make;
+        const selectedModel = this.state.model;
+        const source = `https://www.fueleconomy.gov/ws/rest/vehicle/menu/options?year=${selectedYear}&make=${selectedMake}&model=${selectedModel}`;
         fetch(source).then(response => response.text())
         .then(data => {
             convertToJson(data, (err, convertedData) => {
@@ -27,6 +30,26 @@ class SelectModel extends React.Component {
                 });
             })
         })
+    }
+
+    componentDidMount() {
+        if(this.state.model !== '') {
+            this.fetchData();
+        }
+    }
+
+    componentDidUpdate(prevProps) {
+        if(this.props.info.model !== prevProps.info.model) {
+            console.log('fetching options');
+            this.setState({
+                options: [], 
+                year: this.props.info.year, 
+                make: this.props.info.make,
+                model: this.props.info.model
+            }, () => {
+                this.fetchData()
+            });
+        }
     }
 
     render() {
