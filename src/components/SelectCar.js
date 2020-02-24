@@ -23,8 +23,11 @@ class SelectCar extends React.Component {
     onChangeYear(event) {
         const selectedYear = event.target.value;
         this.setState( prevState => ({
-            ...prevState,
-            year: selectedYear
+            //...prevState,
+            year: selectedYear,
+            make: '',
+            model: '',
+            vehicleId: ''
         }));
     }
 
@@ -32,8 +35,10 @@ class SelectCar extends React.Component {
     onChangeMake(event) {
         const selectedMake = event.target.value;
         this.setState( prevState => ({
-            ...prevState,
+            //...prevState,
             make: selectedMake,
+            model: '',
+            vehicleId: ''
         }));
     }
 
@@ -41,8 +46,9 @@ class SelectCar extends React.Component {
     onChangeModel(event) {
         const selectedModel = event.target.value;
         this.setState( prevState => ({
-            ...prevState,
+            //...prevState,
             model: selectedModel,
+            vehicleId: ''
         }));
     }
 
@@ -50,7 +56,7 @@ class SelectCar extends React.Component {
     onChangeOption(event) {
         const selectedOption = event.target.value;
         this.setState( prevState => ({
-            ...prevState,
+            //...prevState,
             vehicleId: selectedOption
         }));
         const selectedName = this.state.year + ' ' + this.state.make + ' ' + this.state.model;
