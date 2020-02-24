@@ -20,6 +20,10 @@ class App extends React.Component {
     this.onMileageInput = this.onMileageInput.bind(this);
   }
 
+  componentDidMount() {
+    document.title = 'Fuel Calc';
+  }
+
   onClickDone() {
     if (this.state.toCompare.length < 1) {
       alert('Select at least one car');
