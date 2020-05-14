@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat|Nunito|Open+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Montserrat|Nunito|Open+Sans&display=swap");
 
 body {
   background-color: #ffffff;
-  margin: 8px
+  margin: 8px;
 }
 
 h1 {
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   color: #132f2b;
   margin-left: 16px;
   margin-right: 16px;
@@ -17,7 +17,7 @@ h1 {
 }
 
 h3 {
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   color: #132f2b;
   margin-left: 16px;
   margin-right: 16px;
@@ -27,14 +27,14 @@ h3 {
 }
 
 p {
-  font-family: 'Courier New', sans-serif;
+  font-family: "Courier New", sans-serif;
   margin-left: 16px;
   margin-right: 16px;
   color: #132f2b;
 }
 
 label {
-  font-family: 'Courier New', sans-serif;
+  font-family: "Courier New", sans-serif;
   color: #132f2b;
   margin-left: 16px;
   margin-right: 16px;
@@ -43,6 +43,7 @@ label {
 .flexbox {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   padding: 4px;
 }
 
@@ -56,17 +57,18 @@ label {
   border-radius: 4px;
   margin: 8px;
   padding: 4px;
-  width: 50%;
+  min-width: 300px;
+  width: 48%;
   border: 2px solid #196b69;
   transition-duration: 0.4s;
 }
 
 .select-car:hover {
-  box-shadow: 0 2px 6px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
 .button-primary {
-  font-family: 'Courier New', sans-serif;
+  font-family: "Courier New", sans-serif;
   font-weight: bold;
   border-radius: 8px;
   font-size: 20px;
@@ -80,11 +82,11 @@ label {
 }
 
 .button-primary:hover {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
 .button-secondary {
-  font-family: 'Courier New', sans-serif;
+  font-family: "Courier New", sans-serif;
   font-weight: bold;
   border-radius: 8px;
   font-size: 20px;
@@ -97,17 +99,17 @@ label {
 }
 
 .button-secondary:hover {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
 .button-unit {
   float: left;
   border-radius: 8px;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-weight: bold;
   font-size: 16px;
   color: #196b69;
-  border: 2px solid #196b69
+  border: 2px solid #196b69;
 }
 
 .button-unit:active {
@@ -131,15 +133,14 @@ label {
   border: 2px solid #28cc9e;
 }
 
-input[type=text] {
+input[type="text"] {
   width: 100px;
   text-align: right;
   outline: none;
   border: none;
   border-bottom: 2px solid #132f2b;
   color: #132f2b;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-weight: bolder;
   font-size: 20px;
 }
-

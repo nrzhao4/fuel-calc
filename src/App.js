@@ -1,10 +1,11 @@
-import React from 'react';
-import './styles.css';
-import SelectCar from './components/SelectCar';
-import Result from './components/Result';
-import ButtonDone from './components/ButtonDone';
-import ButtonReset from './components/ButtonReset';
-import Mileage from './components/Mileage';
+import React from "react";
+import "./styles.css";
+import SelectCar from "./components/SelectCar";
+import Result from "./components/Result";
+import ButtonDone from "./components/ButtonDone";
+import ButtonReset from "./components/ButtonReset";
+import Mileage from "./components/Mileage";
+import Instructions from "./components/Instructions";
 
 class App extends React.Component {
   constructor() {
@@ -12,7 +13,7 @@ class App extends React.Component {
     this.state = {
       showResult: false,
       toCompare: [],
-      calculationInfo: null
+      calculationInfo: null,
     };
     this.onClickDone = this.onClickDone.bind(this);
     this.onClickReset = this.onClickReset.bind(this);
@@ -21,21 +22,21 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    document.title = 'Fuel Calc';
+    document.title = "Fuel Calc";
   }
 
   onClickDone() {
     if (this.state.toCompare.length < 1) {
-      alert('Select at least one car');
+      alert("Select at least one car");
     } else if (this.state.calculationInfo === null) {
-      alert('Please enter driving distance');
+      alert("Please enter driving distance");
     } else if (isNaN(this.state.calculationInfo.distance)) {
-      alert('Driving distance must be a numerical value');
+      alert("Driving distance must be a numerical value");
     } else if (!this.state.showResult) {
-        this.setState(prevState => ({
-            ...prevState,
-            showResult: true
-        }));
+      this.setState((prevState) => ({
+        ...prevState,
+        showResult: true,
+      }));
     }
   }
 
@@ -44,38 +45,47 @@ class App extends React.Component {
   }
 
   onCarSelected(carNumber, name, vehicleId) {
-    this.setState(prevState => ({
-        ...prevState,
-        toCompare: [...prevState.toCompare, {car: carNumber, name: name, id: vehicleId}]
+    this.setState((prevState) => ({
+      ...prevState,
+      toCompare: [
+        ...prevState.toCompare,
+        { car: carNumber, name: name, id: vehicleId },
+      ],
     }));
   }
 
   onMileageInput(distance, isUnitsMiles) {
-    this.setState(prevState => ({
+    this.setState((prevState) => ({
       ...prevState,
       calculationInfo: {
         distance: distance,
-        isUnitsMiles: isUnitsMiles
-      }
+        isUnitsMiles: isUnitsMiles,
+      },
     }));
   }
 
   render() {
     return (
       <div>
-        <div className='flexbox'>
-            <SelectCar key='1' id='1' onCarSelected={this.onCarSelected} />
-            <SelectCar key='2' id='2' onCarSelected={this.onCarSelected} />         
+        <Instructions />
+        <div className="flexbox" style={{ justifyContent: "center" }}>
+          <SelectCar key="1" id="1" onCarSelected={this.onCarSelected} />
+          <SelectCar key="2" id="2" onCarSelected={this.onCarSelected} />
         </div>
 
-        <Mileage onMileageInput={this.onMileageInput}/>
-        {this.state.showResult && <Result cars={this.state.toCompare} 
-          info={this.state.calculationInfo} />}
-        <div className='flexbox'>
-          {!this.state.showResult && <ButtonDone onClickDone={this.onClickDone} />}
+        <Mileage onMileageInput={this.onMileageInput} />
+        {this.state.showResult && (
+          <Result
+            cars={this.state.toCompare}
+            info={this.state.calculationInfo}
+          />
+        )}
+        <div className="flexbox">
+          {!this.state.showResult && (
+            <ButtonDone onClickDone={this.onClickDone} />
+          )}
           <ButtonReset onClickReset={this.onClickReset} />
         </div>
-        
       </div>
     );
   }
