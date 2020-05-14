@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/fuel-calc/static/css/main.394f1e13.chunk.css",
-    "main.js": "/fuel-calc/static/js/main.244f364d.chunk.js",
-    "main.js.map": "/fuel-calc/static/js/main.244f364d.chunk.js.map",
+    "main.css": "/fuel-calc/static/css/main.843b0abc.chunk.css",
+    "main.js": "/fuel-calc/static/js/main.bb9ec957.chunk.js",
+    "main.js.map": "/fuel-calc/static/js/main.bb9ec957.chunk.js.map",
     "runtime-main.js": "/fuel-calc/static/js/runtime-main.b839f708.js",
     "runtime-main.js.map": "/fuel-calc/static/js/runtime-main.b839f708.js.map",
     "static/js/2.e63fa1b8.chunk.js": "/fuel-calc/static/js/2.e63fa1b8.chunk.js",
     "static/js/2.e63fa1b8.chunk.js.map": "/fuel-calc/static/js/2.e63fa1b8.chunk.js.map",
     "index.html": "/fuel-calc/index.html",
-    "precache-manifest.47b9b1f76c4c9474a878d0dac8c65496.js": "/fuel-calc/precache-manifest.47b9b1f76c4c9474a878d0dac8c65496.js",
+    "precache-manifest.d048ff9c679cc54148521987fdcfa112.js": "/fuel-calc/precache-manifest.d048ff9c679cc54148521987fdcfa112.js",
     "service-worker.js": "/fuel-calc/service-worker.js",
-    "static/css/main.394f1e13.chunk.css.map": "/fuel-calc/static/css/main.394f1e13.chunk.css.map",
+    "static/css/main.843b0abc.chunk.css.map": "/fuel-calc/static/css/main.843b0abc.chunk.css.map",
     "static/js/2.e63fa1b8.chunk.js.LICENSE": "/fuel-calc/static/js/2.e63fa1b8.chunk.js.LICENSE"
   },
   "entrypoints": [
     "static/js/runtime-main.b839f708.js",
     "static/js/2.e63fa1b8.chunk.js",
-    "static/css/main.394f1e13.chunk.css",
-    "static/js/main.244f364d.chunk.js"
+    "static/css/main.843b0abc.chunk.css",
+    "static/js/main.bb9ec957.chunk.js"
   ]
 }

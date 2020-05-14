@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b937e9c912d96b64e282e2a0f099872b",
+    "revision": "d5079357b2d972d7fc6a40be26f8bfc1",
     "url": "/fuel-calc/index.html"
   },
   {
-    "revision": "7039dd721aa4e8bdd872",
-    "url": "/fuel-calc/static/css/main.394f1e13.chunk.css"
+    "revision": "2461a915eada13871a5c",
+    "url": "/fuel-calc/static/css/main.843b0abc.chunk.css"
   },
   {
     "revision": "b880855945eeaf6dc858",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/fuel-calc/static/js/2.e63fa1b8.chunk.js.LICENSE"
   },
   {
-    "revision": "7039dd721aa4e8bdd872",
-    "url": "/fuel-calc/static/js/main.244f364d.chunk.js"
+    "revision": "2461a915eada13871a5c",
+    "url": "/fuel-calc/static/js/main.bb9ec957.chunk.js"
   },
   {
     "revision": "332bbc8196b53db3f038",
